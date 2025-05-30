@@ -1,4 +1,4 @@
-from picozero import DistanceSensor
+from lib.picozero.picozero import DistanceSensor
 from time import sleep
 
 class Sensor: # geen overerving van DistanceSensor want fout mbt verplichte definitie _pin_nums -> kan later nog
@@ -23,11 +23,13 @@ class Sensor: # geen overerving van DistanceSensor want fout mbt verplichte defi
     
     def measure(self):
         sleep(0.3)
-        self.distance_in_cm = self.ds.distance * 100
+        if self.ds.distance is not None:
+            self.distance_in_cm = self.ds.distance * 100
         
     def calibrate(self):
         sleep(0.3)
-        self.distance_to_floor_in_cm = self.ds.distance * 100
+        if self.ds.distance is not None:
+            self.distance_to_floor_in_cm = self.ds.distance * 100
         
     def update(self):
         self.length_in_cm = self.distance_to_floor_in_cm - self.distance_in_cm

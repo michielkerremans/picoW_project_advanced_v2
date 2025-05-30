@@ -3,11 +3,11 @@ from lm_sensor import Sensor, SensorArray
 def load_SensorArray():
     sensor_array = []
 
-    sensor_array.append(Sensor(2, 3))
-    sensor_array.append(Sensor(2, 3))
-    sensor_array.append(Sensor(2, 3))
-    sensor_array.append(Sensor(2, 3))
-    sensor_array.append(Sensor(2, 3))
+    sensor_array.append(Sensor(14, 13))
+    sensor_array.append(Sensor(14, 13))
+    sensor_array.append(Sensor(14, 13))
+    sensor_array.append(Sensor(14, 13))
+    sensor_array.append(Sensor(14, 13))
 
     sa = SensorArray(sensor_array)
 
