@@ -5,8 +5,9 @@ class Sensor: # geen overerving van DistanceSensor want fout mbt verplichte defi
     distance_in_cm = 0
     distance_to_floor_in_cm = 300
     length_in_cm = 0
+    id = "none"
    
-    def __init__(self, echo_pin, trigger_pin):
+    def __init__(self, echo_pin, trigger_pin, id = "none"):
         if type(echo_pin) is int and type(trigger_pin) is int: 
             self.ds = DistanceSensor(echo = echo_pin, trigger = trigger_pin, max_distance = 3)
             try:
@@ -16,6 +17,7 @@ class Sensor: # geen overerving van DistanceSensor want fout mbt verplichte defi
                 raise  # fout opnieuw gegooid -> instantie niet aangemaakt
                 #del self
                 #print(f"Didn't find a distance sensor for given parameters (echo_pin & trigger_pin).")
+            self.id = id
         else:
             raise TypeError("Parameters echo_pin en trigger_pin have to be of type 'int'.")
             #del self

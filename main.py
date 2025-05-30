@@ -20,3 +20,8 @@ while True:
         sa.sensors[1].measure()
         dic = sa.sensors[1].distance_in_cm
         print("Distance in cm: " + str(s.distance_in_cm) + ".\r\n")
+    elif cmd == "measure all":
+        print("Measuring all sensors...")
+        for sensor in sa.sensors:
+            sensor.measure()
+            print(f"Sensor {sensor.id}: {sensor.distance_in_cm} cm.")
