@@ -98,14 +98,9 @@ class SensorArray:
             i += 1
 
     def calibrate_all(self):
-        with open("calibration.txt", "w") as f:
-            f.write("")
-
         for sensor in self.sensors:
             sensor.calibrate()
             print(f"{sensor.distance_to_floor_in_cm}")
-            with open("calibration.txt", "a") as f:
-                f.write(f"{sensor.id}: {sensor.distance_to_floor_in_cm}\n")
 
         # normaal verandert aantal sensors van object niet (probleem bij lager aantal -> nu bij zelfde aantal maar andere posities ook), maar voor de zekerheid:
         self.front_back_diff = 0
